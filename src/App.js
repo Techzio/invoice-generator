@@ -3,8 +3,6 @@ import Compinfoform from './components/Compinfoform';
 import Custinfoform from './components/Custinfoform';
 import Preview from './components/Preview';
 import InvoiceForm from './components/Invoiceform';
-
-
 import './App.css';
 import { render } from '@testing-library/react';
 import Itemform from './components/Itemform';
@@ -67,8 +65,8 @@ class App extends Component {
   }
   
   render(){
-    return (
-      <div className="App">
+    return (     
+      <>
         {
         (this.state.isCompInfoSubmit && this.state.isCustInfoSubmit && this.state.isInvoiceInfoSubmit
           && this.state.isItemInfoSubmit) ?
@@ -91,16 +89,23 @@ class App extends Component {
           invNumber = {this.state.invNumber}
           invDate = {this.state.invDate}
           invDue = {this.state.invDue}
+          itemName = {this.state.itemName}
+          description = {this.state.description}
+          quantity = {this.state.quantity}       
+          price = {this.state.price}
+          tax = {this.state.tax} 
+          total = {this.state.total} 
           captureInfo = {this.captureInfo} 
           submitInfo = {this.submitInfo}                  
           />
           :
         (this.state.isCompInfoSubmit && this.state.isCustInfoSubmit && this.state.isInvoiceInfoSubmit) ?
-        <Itemform invTitle = {this.state.invTitle}
-                  summary = {this.state.summary}
-                  invNumber = {this.state.invNumber}       
-                  invDate = {this.state.invDate}
-                  invDue = {this.state.invDue}            
+        <Itemform itemName = {this.state.itemName}
+                  description = {this.state.description}
+                  quantity = {this.state.quantity}       
+                  price = {this.state.price}
+                  tax = {this.state.tax} 
+                  total = {this.state.total}                       
                   captureInfo = {this.captureInfo}                     
                   submitInfo = {this.submitInfo}/>
           :
@@ -135,7 +140,7 @@ class App extends Component {
         captureInfo = {this.captureInfo} 
         submitInfo = {this.submitInfo}/>
         }
-      </div>
+      </>
     );
   }
   
